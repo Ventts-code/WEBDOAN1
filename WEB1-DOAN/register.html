@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop Quần Áo - Đăng ký</title>
+  <link rel="icon" type="image/png" href="images/logo-cat.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="main-header">
+    <div class="logo">
+      <a href="index.html">
+        <span class="logo-badge-icon">🐱</span>
+        <span>ShopCloth</span>
+      </a>
+    </div>
+    <nav class="navbar" style="display: flex; align-items: center; gap: 20px;">
+      <a href="index.html">Trang Chủ</a>
+      <a href="cart.html">Giỏ Hàng</a>
+      <a href="log-in.html">Đăng nhập tài khoản</a>
+    </nav>
+  </header>
+
+  <div class="auth-page-container">
+    <div class="auth-card">
+      <h2 class="auth-card-title">Tạo tài khoản mới</h2>
+      <form class="auth-form" id="registerFormDirect" action="logged-index.html" method="get">
+        <div class="auth-field">
+          <label>Họ và tên</label>
+          <input type="text" id="regNameInput" placeholder="Nguyễn Văn An" value="Nguyễn Văn An" required>
+        </div>
+        <div class="auth-field">
+          <label>Email hoặc Số điện thoại</label>
+          <input type="text" id="regContactInput" placeholder="0901234567" value="0901234567" required>
+        </div>
+        <div class="auth-field">
+          <label>Mật khẩu</label>
+          <input type="password" id="regPassInput" placeholder="••••••••" value="123456" required>
+        </div>
+        <button type="submit" class="btn-primary-custom" style="width: 100%; border: none; cursor: pointer;">Đăng ký</button>
+      </form>
+      <div class="auth-footer-text">
+        <span>Đã có tài khoản? </span><a href="log-in.html">Đăng nhập ngay</a>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

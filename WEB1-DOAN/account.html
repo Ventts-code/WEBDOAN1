@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tài Khoản Khách Hàng - ShopCloth</title>
+    <link rel="icon" type="image/png" href="images/logo-cat.png">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <header class="main-header">
+        <div class="logo">
+            <a href="index.html">
+                <span class="logo-badge-icon">🐱</span>
+                <span>ShopCloth</span>
+            </a>
+        </div>
+        <div class="header-right-group">
+            <nav class="navbar">
+                <!-- Nút Home icon -->
+                <a href="index.html" class="nav-home-btn" title="Trang chủ">
+                    <svg width="36" height="36" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                    </svg>
+                </a>
+            </nav>
+
+            <!-- Icon Giỏ Hàng có Badge số lượng -->
+            <a href="cart.html" class="nav-cart-btn" title="Giỏ hàng của bạn">
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                </svg>
+                <span id="cartCountBadge" class="cart-badge">2</span>
+            </a>
+
+            <!-- Phần người dùng nằm bên trái nút 3 gạch -->
+            <div id="navUserSlot" style="display: inline-flex; align-items: center;">
+                <a href="account.html" class="nav-user-pill">
+                    <span class="nav-user-avatar">N</span>
+                    <span class="nav-user-name">Nguyễn Văn An</span>
+                </a>
+            </div>
+
+            <!-- Góc nút 3 gạch (không nền) -->
+            <div class="menu-toggle-wrapper">
+                <button type="button" class="btn-hamburger" id="btnHamburgerMenu" title="Menu quản trị">
+                    ☰
+                </button>
+                <div class="hamburger-dropdown" id="hamburgerDropdown">
+                    <a href="admin/login.html">
+                        <span>🔐</span>
+                        <span>Đăng nhập quản trị</span>
+                    </a>
+                    <a href="history.html">
+                        <span>📦</span>
+                        <span>Lịch sử mua hàng</span>
+                    </a>
+                    <a href="index.html">
+                        <span>🚪</span>
+                        <span>Đăng xuất</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container" style="flex-direction: column;">
+        <!-- Khung Thông Tin Tài Khoản & Lịch Sử Đơn Hàng (Đã đăng nhập) -->
+        <div id="accountDashboardView" style="display: block; width: 100%;">
+            <div class="cart-box" style="margin-bottom: 24px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+                    <div style="display: flex; align-items: center; gap: 16px;">
+                        <div style="width: 54px; height: 54px; border-radius: 50%; background: linear-gradient(135deg, #0284c7, #38bdf8); color: white; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: bold; border: 2px solid #38bdf8;">
+                            N
+                        </div>
+                        <div>
+                            <h2 style="margin-bottom: 4px; border-bottom: none; padding-bottom: 0;">Xin Chào, <span id="accUserName">Nguyễn Văn An</span> 👋</h2>
+                            <p style="color: #94a3b8; font-size: 14px;">Email: <strong id="accUserEmail">nguyenvanan@gmail.com</strong> • SĐT: <strong id="accUserPhone">0901234567</strong></p>
+                        </div>
+                    </div>
+                    <div style="display:flex; gap:10px;">
+                        <a href="history.html" class="btn-primary" style="text-decoration:none; display:inline-block; width:auto; padding:8px 18px; font-size:14px;">Lịch sử đơn hàng</a>
+                        <a href="index.html" class="btn-primary" style="text-decoration:none; display:inline-block; width:auto; padding:8px 18px; font-size:14px; background:#334155;">Đăng Xuất</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bảng Lịch Sử Đơn Hàng Của Khách Hàng -->
+            <div class="cart-box">
+                <h2>Lịch Sử Đơn Đặt Hàng Của Bạn</h2>
+                <div style="overflow-x: auto;">
+                    <table class="cart-table">
+                        <thead>
+                            <tr>
+                                <th>Mã đơn</th>
+                                <th>Ngày đặt</th>
+                                <th>Tổng tiền</th>
+                                <th>Trạng thái</th>
+                                <th>Chi tiết</th>
+                            </tr>
+                        </thead>
+                        <tbody id="userOrderHistoryBody">
+                            <tr>
+                                <td><strong>#ORD-9824</strong></td>
+                                <td>18/11/2026</td>
+                                <td style="color:#38bdf8; font-weight:700;">1.819.000 đ</td>
+                                <td><span class="order-badge-status status-confirmed">Đã xác nhận</span></td>
+                                <td>
+                                    <a href="order-detail.html" class="btn-detail" style="padding:4px 10px; font-size:12px; display:inline-block; text-decoration:none;">
+                                        Xem chi tiết
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>#ORD-9021</strong></td>
+                                <td>15/10/2026</td>
+                                <td style="color:#38bdf8; font-weight:700;">3.118.000 đ</td>
+                                <td><span class="order-badge-status status-pending">Chưa xác nhận</span></td>
+                                <td>
+                                    <a href="order-detail.html" class="btn-detail" style="padding:4px 10px; font-size:12px; display:inline-block; text-decoration:none;">
+                                        Xem chi tiết
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>#ORD-9027</strong></td>
+                                <td>10/10/2026</td>
+                                <td style="color:#38bdf8; font-weight:700;">350.000 đ</td>
+                                <td><span class="order-badge-status status-delivered">Đã giao</span></td>
+                                <td>
+                                    <a href="order-detail.html" class="btn-detail" style="padding:4px 10px; font-size:12px; display:inline-block; text-decoration:none;">
+                                        Xem chi tiết
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Khung cập nhật thông tin cá nhân -->
+            <div class="cart-box" style="margin-top: 24px;">
+                <h2>Thông Tin Cá Nhân</h2>
+                <form action="account.html" method="get">
+                    <div class="form-row-customer">
+                        <div class="form-group-customer">
+                            <label>Họ và tên:</label>
+                            <input type="text" class="form-control-customer" value="Nguyễn Văn An">
+                        </div>
+                        <div class="form-group-customer">
+                            <label>Số điện thoại:</label>
+                            <input type="text" class="form-control-customer" value="0901234567">
+                        </div>
+                    </div>
+                    <div class="form-row-customer">
+                        <div class="form-group-customer">
+                            <label>Địa chỉ email:</label>
+                            <input type="email" class="form-control-customer" value="nguyenvanan@gmail.com">
+                        </div>
+                        <div class="form-group-customer">
+                            <label>Địa chỉ mặc định:</label>
+                            <input type="text" class="form-control-customer" value="123 Lê Lợi, Phường Bến Nghé, Quận 1, Hồ Chí Minh">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-primary" style="width: auto; padding: 10px 24px; border: none; cursor: pointer;">
+                        Lưu thông tin
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

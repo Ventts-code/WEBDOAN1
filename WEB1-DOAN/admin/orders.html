@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Portal | Quản lý đơn hàng</title>
+  <link rel="icon" type="image/png" href="../images/logo-cat.png">
+  <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body>
+  <div class="admin-layout">
+    <!-- Mobile Sidebar Backdrop -->
+    <div class="sidebar-backdrop"></div>
+
+    <!-- Sidebar Layout -->
+    <aside class="admin-sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">AdminStore</span>
+          <span class="brand-subtitle">Quản trị hệ thống</span>
+        </div>
+      </div>
+
+      <div class="sidebar-nav-container">
+        <div class="nav-section-title">Tổng quan</div>
+        <ul class="nav-list">
+          <li>
+            <a href="index.html" class="nav-link">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+              </svg>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="users.html" class="nav-link">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+              </svg>
+              <span>Quản lý User</span>
+              <span class="nav-badge">10</span>
+            </a>
+          </li>
+          <li>
+            <a href="products.html" class="nav-link">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+              </svg>
+              <span>Quản lý Sản phẩm</span>
+            </a>
+          </li>
+          <li>
+            <a href="orders.html" class="nav-link active">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+              </svg>
+              <span>Quản lý Đơn hàng</span>
+              <span class="nav-badge" style="background:var(--warning); color:#fff;">4 mới</span>
+            </a>
+          </li>
+        </ul>
+
+        <div class="nav-section-title">Cài đặt & Tài khoản</div>
+        <ul class="nav-list">
+          <li>
+            <a href="login.html" class="nav-link" style="color: #f87171;">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+              </svg>
+              <span>Đăng xuất</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="user-quick-profile">
+          <div class="user-avatar-sm">AD</div>
+          <div class="user-quick-info">
+            <span class="user-quick-name">Nguyễn Văn Admin</span>
+            <span class="user-quick-role">Super Admin</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <div class="admin-main">
+      <!-- Topbar -->
+      <header class="admin-topbar">
+        <div class="topbar-left">
+          <button class="btn-mobile-sidebar" aria-label="Toggle menu">
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+          <nav class="breadcrumb">
+            <span>Admin</span>
+            <span class="breadcrumb-separator">/</span>
+            <span class="breadcrumb-item active">Quản lý đơn hàng</span>
+          </nav>
+        </div>
+
+        <div class="topbar-right">
+          <a href="../index.html" class="btn btn-secondary btn-sm" style="text-decoration:none;">
+            &larr; Ra Trang Bán Hàng
+          </a>
+        </div>
+      </header>
+
+      <!-- Page Content -->
+      <main class="page-container">
+        <!-- Page Heading -->
+        <div class="page-header">
+          <div class="page-title-group">
+            <h1>Quản Lý Đơn Hàng</h1>
+            <p>Theo dõi, lọc trạng thái và xử lý tất cả đơn hàng của cửa hàng.</p>
+          </div>
+          <div class="date-badge" id="currentDateBadge">Hôm nay</div>
+        </div>
+
+        <!-- 4 KPI Stat Cards -->
+        <div class="stat-grid">
+          <div class="stat-card blue">
+            <div class="stat-info">
+              <p>Tổng đơn hàng</p>
+              <div class="stat-value" id="totalOrders">14</div>
+            </div>
+            <div class="stat-icon-wrap">
+              <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+              </svg>
+            </div>
+          </div>
+
+          <div class="stat-card orange">
+            <div class="stat-info">
+              <p>Chưa xác nhận</p>
+              <div class="stat-value" id="pendingOrders">4</div>
+            </div>
+            <div class="stat-icon-wrap">
+              <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+          </div>
+
+          <div class="stat-card green">
+            <div class="stat-info">
+              <p>Đã giao thành công</p>
+              <div class="stat-value" id="deliveredOrders">6</div>
+            </div>
+            <div class="stat-icon-wrap">
+              <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+          </div>
+
+          <div class="stat-card purple">
+            <div class="stat-info">
+              <p>Tổng doanh thu</p>
+              <div class="stat-value" id="revenue">12.665.000 đ</div>
+            </div>
+            <div class="stat-icon-wrap">
+              <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bộ Lọc Đơn Hàng -->
+        <div class="card">
+          <div class="card-header" style="margin-bottom: 16px;">
+            <h2 class="card-title">Bộ lọc tìm kiếm đơn hàng</h2>
+          </div>
+          <div class="filter-bar" style="margin-bottom: 0;">
+            <div class="filter-input-wrap">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+              <input id="search" placeholder="Mã đơn hàng, tên khách hàng...">
+            </div>
+
+            <select class="filter-select" id="statusFilter">
+              <option value="all">Tất cả trạng thái</option>
+              <option value="Chưa xác nhận">Chưa xác nhận</option>
+              <option value="Đã xác nhận">Đã xác nhận</option>
+              <option value="Đã giao">Đã giao thành công</option>
+              <option value="Hủy đơn">Hủy đơn</option>
+            </select>
+
+            <select class="filter-select" id="location">
+              <option value="all">Tất cả tỉnh / thành</option>
+              <option value="Hồ Chí Minh">Hồ Chí Minh</option>
+              <option value="Hà Nội">Hà Nội</option>
+              <option value="Đà Nẵng">Đà Nẵng</option>
+              <option value="Cần Thơ">Cần Thơ</option>
+            </select>
+
+            <a href="orders.html" class="btn btn-primary" style="display:inline-flex; align-items:center; gap:6px; text-decoration:none;">
+              <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+              </svg>
+              Áp dụng lọc
+            </a>
+            <a href="orders.html" class="btn btn-secondary" style="display:inline-flex; align-items:center; gap:6px; text-decoration:none;">
+              <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+              </svg>
+              Đặt lại
+            </a>
+          </div>
+        </div>
+
+        <!-- Bảng Quản Lý Đơn Hàng -->
+        <div class="card">
+          <div class="card-header" style="margin-bottom: 14px;">
+            <div class="card-title">
+              <span>Bảng danh sách đơn hàng</span>
+              <span id="resultCount" class="badge badge-gray">14 đơn hàng</span>
+            </div>
+            <div style="font-size: 12.5px; color: var(--text-muted);">
+              Có thể đổi trạng thái đơn hàng trực tiếp tùy ý ngay tại cột Trạng thái
+            </div>
+          </div>
+
+          <div class="table-responsive">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Mã đơn</th>
+                  <th>Khách hàng</th>
+                  <th>Thời gian</th>
+                  <th>Địa điểm</th>
+                  <th>Tổng tiền</th>
+                  <th>Trạng thái (Đổi nhanh)</th>
+                  <th style="text-align: right;">Chi tiết</th>
+                </tr>
+              </thead>
+              <tbody id="orderRows">
+                <tr>
+                  <td><span class="code-pill" style="font-weight:700;">#ORD-9021</span></td>
+                  <td><strong style="color:var(--text-main);">Nguyễn Văn An</strong></td>
+                  <td style="color:var(--text-muted); font-size:13px;">15/10/2026</td>
+                  <td>Hồ Chí Minh</td>
+                  <td><strong style="color:var(--text-main); font-size:14px;">3.118.000 đ</strong></td>
+                  <td>
+                    <select class="form-select-input" style="width: auto; padding: 4px 8px; font-size: 12.5px; height: 32px; font-weight:600;">
+                      <option value="Chưa xác nhận" selected>⚠️ Chưa xác nhận</option>
+                      <option value="Đã xác nhận">📦 Đã xác nhận</option>
+                      <option value="Đã giao">✓ Đã giao</option>
+                      <option value="Hủy đơn">✕ Hủy đơn</option>
+                    </select>
+                  </td>
+                  <td style="text-align: right;">
+                    <a class="btn btn-secondary btn-sm" href="order-detail.html">Xem chi tiết</a>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td><span class="code-pill" style="font-weight:700;">#ORD-9022</span></td>
+                  <td><strong style="color:var(--text-main);">Trần Thị Bích</strong></td>
+                  <td style="color:var(--text-muted); font-size:13px;">14/10/2026</td>
+                  <td>Hà Nội</td>
+                  <td><strong style="color:var(--text-main); font-size:14px;">350.000 đ</strong></td>
+                  <td>
+                    <select class="form-select-input" style="width: auto; padding: 4px 8px; font-size: 12.5px; height: 32px; font-weight:600;">
+                      <option value="Chưa xác nhận">⚠️ Chưa xác nhận</option>
+                      <option value="Đã xác nhận" selected>📦 Đã xác nhận</option>
+                      <option value="Đã giao">✓ Đã giao</option>
+                      <option value="Hủy đơn">✕ Hủy đơn</option>
+                    </select>
+                  </td>
+                  <td style="text-align: right;">
+                    <a class="btn btn-secondary btn-sm" href="order-detail.html">Xem chi tiết</a>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td><span class="code-pill" style="font-weight:700;">#ORD-9023</span></td>
+                  <td><strong style="color:var(--text-main);">Lê Hoàng Long</strong></td>
+                  <td style="color:var(--text-muted); font-size:13px;">14/10/2026</td>
+                  <td>Đà Nẵng</td>
+                  <td><strong style="color:var(--text-main); font-size:14px;">1.549.000 đ</strong></td>
+                  <td>
+                    <select class="form-select-input" style="width: auto; padding: 4px 8px; font-size: 12.5px; height: 32px; font-weight:600;">
+                      <option value="Chưa xác nhận">⚠️ Chưa xác nhận</option>
+                      <option value="Đã xác nhận">📦 Đã xác nhận</option>
+                      <option value="Đã giao" selected>✓ Đã giao</option>
+                      <option value="Hủy đơn">✕ Hủy đơn</option>
+                    </select>
+                  </td>
+                  <td style="text-align: right;">
+                    <a class="btn btn-secondary btn-sm" href="order-detail.html">Xem chi tiết</a>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td><span class="code-pill" style="font-weight:700;">#ORD-9024</span></td>
+                  <td><strong style="color:var(--text-main);">Phạm Minh Tuấn</strong></td>
+                  <td style="color:var(--text-muted); font-size:13px;">13/10/2026</td>
+                  <td>Cần Thơ</td>
+                  <td><strong style="color:var(--text-main); font-size:14px;">940.000 đ</strong></td>
+                  <td>
+                    <select class="form-select-input" style="width: auto; padding: 4px 8px; font-size: 12.5px; height: 32px; font-weight:600;">
+                      <option value="Chưa xác nhận">⚠️ Chưa xác nhận</option>
+                      <option value="Đã xác nhận">📦 Đã xác nhận</option>
+                      <option value="Đã giao" selected>✓ Đã giao</option>
+                      <option value="Hủy đơn">✕ Hủy đơn</option>
+                    </select>
+                  </td>
+                  <td style="text-align: right;">
+                    <a class="btn btn-secondary btn-sm" href="order-detail.html">Xem chi tiết</a>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td><span class="code-pill" style="font-weight:700;">#ORD-9025</span></td>
+                  <td><strong style="color:var(--text-main);">Hoàng Thảo My</strong></td>
+                  <td style="color:var(--text-muted); font-size:13px;">12/10/2026</td>
+                  <td>Đà Nẵng</td>
+                  <td><strong style="color:var(--text-main); font-size:14px;">800.000 đ</strong></td>
+                  <td>
+                    <select class="form-select-input" style="width: auto; padding: 4px 8px; font-size: 12.5px; height: 32px; font-weight:600;">
+                      <option value="Chưa xác nhận" selected>⚠️ Chưa xác nhận</option>
+                      <option value="Đã xác nhận">📦 Đã xác nhận</option>
+                      <option value="Đã giao">✓ Đã giao</option>
+                      <option value="Hủy đơn">✕ Hủy đơn</option>
+                    </select>
+                  </td>
+                  <td style="text-align: right;">
+                    <a class="btn btn-secondary btn-sm" href="order-detail.html">Xem chi tiết</a>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td><span class="code-pill" style="font-weight:700;">#ORD-9026</span></td>
+                  <td><strong style="color:var(--text-main);">Đặng Quốc Huy</strong></td>
+                  <td style="color:var(--text-muted); font-size:13px;">12/10/2026</td>
+                  <td>Hồ Chí Minh</td>
+                  <td><strong style="color:var(--text-main); font-size:14px;">700.000 đ</strong></td>
+                  <td>
+                    <select class="form-select-input" style="width: auto; padding: 4px 8px; font-size: 12.5px; height: 32px; font-weight:600;">
+                      <option value="Chưa xác nhận">⚠️ Chưa xác nhận</option>
+                      <option value="Đã xác nhận">📦 Đã xác nhận</option>
+                      <option value="Đã giao" selected>✓ Đã giao</option>
+                      <option value="Hủy đơn">✕ Hủy đơn</option>
+                    </select>
+                  </td>
+                  <td style="text-align: right;">
+                    <a class="btn btn-secondary btn-sm" href="order-detail.html">Xem chi tiết</a>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td><span class="code-pill" style="font-weight:700;">#ORD-9027</span></td>
+                  <td><strong style="color:var(--text-main);">Nguyễn Văn An</strong></td>
+                  <td style="color:var(--text-muted); font-size:13px;">10/10/2026</td>
+                  <td>Hồ Chí Minh</td>
+                  <td><strong style="color:var(--text-main); font-size:14px;">350.000 đ</strong></td>
+                  <td>
+                    <select class="form-select-input" style="width: auto; padding: 4px 8px; font-size: 12.5px; height: 32px; font-weight:600;">
+                      <option value="Chưa xác nhận">⚠️ Chưa xác nhận</option>
+                      <option value="Đã xác nhận">📦 Đã xác nhận</option>
+                      <option value="Đã giao" selected>✓ Đã giao</option>
+                      <option value="Hủy đơn">✕ Hủy đơn</option>
+                    </select>
+                  </td>
+                  <td style="text-align: right;">
+                    <a class="btn btn-secondary btn-sm" href="order-detail.html">Xem chi tiết</a>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td><span class="code-pill" style="font-weight:700;">#ORD-9028</span></td>
+                  <td><strong style="color:var(--text-main);">Vũ Bích Ngọc</strong></td>
+                  <td style="color:var(--text-muted); font-size:13px;">09/10/2026</td>
+                  <td>Hà Nội</td>
+                  <td><strong style="color:var(--text-main); font-size:14px;">970.000 đ</strong></td>
+                  <td>
+                    <select class="form-select-input" style="width: auto; padding: 4px 8px; font-size: 12.5px; height: 32px; font-weight:600;">
+                      <option value="Chưa xác nhận">⚠️ Chưa xác nhận</option>
+                      <option value="Đã xác nhận" selected>📦 Đã xác nhận</option>
+                      <option value="Đã giao">✓ Đã giao</option>
+                      <option value="Hủy đơn">✕ Hủy đơn</option>
+                    </select>
+                  </td>
+                  <td style="text-align: right;">
+                    <a class="btn btn-secondary btn-sm" href="order-detail.html">Xem chi tiết</a>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td><span class="code-pill" style="font-weight:700;">#ORD-9029</span></td>
+                  <td><strong style="color:var(--text-main);">Trần Thị Bích</strong></td>
+                  <td style="color:var(--text-muted); font-size:13px;">08/10/2026</td>
+                  <td>Hà Nội</td>
+                  <td><strong style="color:var(--text-main); font-size:14px;">420.000 đ</strong></td>
+                  <td>
+                    <select class="form-select-input" style="width: auto; padding: 4px 8px; font-size: 12.5px; height: 32px; font-weight:600;">
+                      <option value="Chưa xác nhận">⚠️ Chưa xác nhận</option>
+                      <option value="Đã xác nhận">📦 Đã xác nhận</option>
+                      <option value="Đã giao" selected>✓ Đã giao</option>
+                      <option value="Hủy đơn">✕ Hủy đơn</option>
+                    </select>
+                  </td>
+                  <td style="text-align: right;">
+                    <a class="btn btn-secondary btn-sm" href="order-detail.html">Xem chi tiết</a>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td><span class="code-pill" style="font-weight:700;">#ORD-9030</span></td>
+                  <td><strong style="color:var(--text-main);">Hoàng Gia Bảo</strong></td>
+                  <td style="color:var(--text-muted); font-size:13px;">16/10/2026</td>
+                  <td>Hồ Chí Minh</td>
+                  <td><strong style="color:var(--text-main); font-size:14px;">870.000 đ</strong></td>
+                  <td>
+                    <select class="form-select-input" style="width: auto; padding: 4px 8px; font-size: 12.5px; height: 32px; font-weight:600;">
+                      <option value="Chưa xác nhận" selected>⚠️ Chưa xác nhận</option>
+                      <option value="Đã xác nhận">📦 Đã xác nhận</option>
+                      <option value="Đã giao">✓ Đã giao</option>
+                      <option value="Hủy đơn">✕ Hủy đơn</option>
+                    </select>
+                  </td>
+                  <td style="text-align: right;">
+                    <a class="btn btn-secondary btn-sm" href="order-detail.html">Xem chi tiết</a>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td><span class="code-pill" style="font-weight:700;">#ORD-9031</span></td>
+                  <td><strong style="color:var(--text-main);">Bùi Anh Tuấn</strong></td>
+                  <td style="color:var(--text-muted); font-size:13px;">16/10/2026</td>
+                  <td>Hà Nội</td>
+                  <td><strong style="color:var(--text-main); font-size:14px;">1.299.000 đ</strong></td>
+                  <td>
+                    <select class="form-select-input" style="width: auto; padding: 4px 8px; font-size: 12.5px; height: 32px; font-weight:600;">
+                      <option value="Chưa xác nhận">⚠️ Chưa xác nhận</option>
+                      <option value="Đã xác nhận" selected>📦 Đã xác nhận</option>
+                      <option value="Đã giao">✓ Đã giao</option>
+                      <option value="Hủy đơn">✕ Hủy đơn</option>
+                    </select>
+                  </td>
+                  <td style="text-align: right;">
+                    <a class="btn btn-secondary btn-sm" href="order-detail.html">Xem chi tiết</a>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td><span class="code-pill" style="font-weight:700;">#ORD-9032</span></td>
+                  <td><strong style="color:var(--text-main);">Lý Quốc Cường</strong></td>
+                  <td style="color:var(--text-muted); font-size:13px;">15/10/2026</td>
+                  <td>Đà Nẵng</td>
+                  <td><strong style="color:var(--text-main); font-size:14px;">670.000 đ</strong></td>
+                  <td>
+                    <select class="form-select-input" style="width: auto; padding: 4px 8px; font-size: 12.5px; height: 32px; font-weight:600;">
+                      <option value="Chưa xác nhận" selected>⚠️ Chưa xác nhận</option>
+                      <option value="Đã xác nhận">📦 Đã xác nhận</option>
+                      <option value="Đã giao">✓ Đã giao</option>
+                      <option value="Hủy đơn">✕ Hủy đơn</option>
+                    </select>
+                  </td>
+                  <td style="text-align: right;">
+                    <a class="btn btn-secondary btn-sm" href="order-detail.html">Xem chi tiết</a>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td><span class="code-pill" style="font-weight:700;">#ORD-9033</span></td>
+                  <td><strong style="color:var(--text-main);">Đỗ Thùy Linh</strong></td>
+                  <td style="color:var(--text-muted); font-size:13px;">11/10/2026</td>
+                  <td>Cần Thơ</td>
+                  <td><strong style="color:var(--text-main); font-size:14px;">350.000 đ</strong></td>
+                  <td>
+                    <select class="form-select-input" style="width: auto; padding: 4px 8px; font-size: 12.5px; height: 32px; font-weight:600;">
+                      <option value="Chưa xác nhận">⚠️ Chưa xác nhận</option>
+                      <option value="Đã xác nhận">📦 Đã xác nhận</option>
+                      <option value="Đã giao">✓ Đã giao</option>
+                      <option value="Hủy đơn" selected>✕ Hủy đơn</option>
+                    </select>
+                  </td>
+                  <td style="text-align: right;">
+                    <a class="btn btn-secondary btn-sm" href="order-detail.html">Xem chi tiết</a>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td><span class="code-pill" style="font-weight:700;">#ORD-9034</span></td>
+                  <td><strong style="color:var(--text-main);">Hoàng Gia Bảo</strong></td>
+                  <td style="color:var(--text-muted); font-size:13px;">07/10/2026</td>
+                  <td>Hồ Chí Minh</td>
+                  <td><strong style="color:var(--text-main); font-size:14px;">629.000 đ</strong></td>
+                  <td>
+                    <select class="form-select-input" style="width: auto; padding: 4px 8px; font-size: 12.5px; height: 32px; font-weight:600;">
+                      <option value="Chưa xác nhận">⚠️ Chưa xác nhận</option>
+                      <option value="Đã xác nhận">📦 Đã xác nhận</option>
+                      <option value="Đã giao" selected>✓ Đã giao</option>
+                      <option value="Hủy đơn">✕ Hủy đơn</option>
+                    </select>
+                  </td>
+                  <td style="text-align: right;">
+                    <a class="btn btn-secondary btn-sm" href="order-detail.html">Xem chi tiết</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Pagination -->
+          <div class="pagination-wrap">
+            <div class="pagination-info" id="orderPaginationText">Hiển thị 1 - 14 của 14 đơn hàng</div>
+            <div class="pagination-controls" id="paginationControls">
+              <button class="page-btn active">1</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Thống Kê Khách Hàng & Phân Bổ Trạng Thái -->
+        <div style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 24px;">
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <h2 class="card-title">Top Khách Hàng Chi Tiêu Cao Nhất</h2>
+                <span class="card-subtitle">Xếp hạng theo tổng giá trị các đơn đặt hàng</span>
+              </div>
+            </div>
+            <div class="table-responsive">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th style="width: 50px;">Hạng</th>
+                    <th>Khách hàng</th>
+                    <th style="text-align: center;">Số đơn</th>
+                    <th style="text-align: right;">Tổng chi tiêu</th>
+                    <th style="text-align: right;">Danh sách đơn</th>
+                  </tr>
+                </thead>
+                <tbody id="customerRows">
+                  <tr>
+                    <td><span class="badge badge-purple" style="font-weight:700;">#1</span></td>
+                    <td><strong>Nguyễn Văn An</strong></td>
+                    <td style="text-align: center;">2 đơn</td>
+                    <td style="text-align: right; font-weight:700; color:var(--primary);">3.468.000 đ</td>
+                    <td style="text-align: right;"><a href="order-detail.html" class="btn btn-secondary btn-sm">Xem đơn</a></td>
+                  </tr>
+                  <tr>
+                    <td><span class="badge badge-info" style="font-weight:700;">#2</span></td>
+                    <td><strong>Lê Hoàng Long</strong></td>
+                    <td style="text-align: center;">1 đơn</td>
+                    <td style="text-align: right; font-weight:700; color:var(--primary);">1.549.000 đ</td>
+                    <td style="text-align: right;"><a href="order-detail.html" class="btn btn-secondary btn-sm">Xem đơn</a></td>
+                  </tr>
+                  <tr>
+                    <td><span class="badge badge-success" style="font-weight:700;">#3</span></td>
+                    <td><strong>Hoàng Gia Bảo</strong></td>
+                    <td style="text-align: center;">2 đơn</td>
+                    <td style="text-align: right; font-weight:700; color:var(--primary);">1.499.000 đ</td>
+                    <td style="text-align: right;"><a href="order-detail.html" class="btn btn-secondary btn-sm">Xem đơn</a></td>
+                  </tr>
+                  <tr>
+                    <td><span class="badge badge-gray">#4</span></td>
+                    <td><strong>Bùi Anh Tuấn</strong></td>
+                    <td style="text-align: center;">1 đơn</td>
+                    <td style="text-align: right; font-weight:700; color:var(--primary);">1.299.000 đ</td>
+                    <td style="text-align: right;"><a href="order-detail.html" class="btn btn-secondary btn-sm">Xem đơn</a></td>
+                  </tr>
+                  <tr>
+                    <td><span class="badge badge-gray">#5</span></td>
+                    <td><strong>Vũ Bích Ngọc</strong></td>
+                    <td style="text-align: center;">1 đơn</td>
+                    <td style="text-align: right; font-weight:700; color:var(--primary);">970.000 đ</td>
+                    <td style="text-align: right;"><a href="order-detail.html" class="btn btn-secondary btn-sm">Xem đơn</a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-title">Phân Bổ Trạng Thái Đơn Hàng</h2>
+            </div>
+            <div id="statusSummary" style="display:flex; flex-direction:column; gap:16px;">
+              <div>
+                <div style="display:flex; justify-content:space-between; margin-bottom:6px; font-size:13px;">
+                  <span style="font-weight:600;">Đã giao thành công</span>
+                  <strong>6 đơn (42.9%)</strong>
+                </div>
+                <div style="height:8px; background:#f1f5f9; border-radius:var(--radius-full); overflow:hidden;">
+                  <div style="width:42.9%; height:100%; background:var(--success); border-radius:var(--radius-full);"></div>
+                </div>
+              </div>
+
+              <div>
+                <div style="display:flex; justify-content:space-between; margin-bottom:6px; font-size:13px;">
+                  <span style="font-weight:600;">Chưa xác nhận</span>
+                  <strong>4 đơn (28.6%)</strong>
+                </div>
+                <div style="height:8px; background:#f1f5f9; border-radius:var(--radius-full); overflow:hidden;">
+                  <div style="width:28.6%; height:100%; background:var(--warning); border-radius:var(--radius-full);"></div>
+                </div>
+              </div>
+
+              <div>
+                <div style="display:flex; justify-content:space-between; margin-bottom:6px; font-size:13px;">
+                  <span style="font-weight:600;">Đã xác nhận</span>
+                  <strong>3 đơn (21.4%)</strong>
+                </div>
+                <div style="height:8px; background:#f1f5f9; border-radius:var(--radius-full); overflow:hidden;">
+                  <div style="width:21.4%; height:100%; background:var(--primary); border-radius:var(--radius-full);"></div>
+                </div>
+              </div>
+
+              <div>
+                <div style="display:flex; justify-content:space-between; margin-bottom:6px; font-size:13px;">
+                  <span style="font-weight:600;">Hủy đơn</span>
+                  <strong>1 đơn (7.1%)</strong>
+                </div>
+                <div style="height:8px; background:#f1f5f9; border-radius:var(--radius-full); overflow:hidden;">
+                  <div style="width:7.1%; height:100%; background:var(--danger); border-radius:var(--radius-full);"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+</body>
+</html>

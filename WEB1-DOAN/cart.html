@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giỏ Hàng - ShopCloth</title>
+    <link rel="icon" type="image/png" href="images/logo-cat.png">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <header class="main-header">
+        <div class="logo">
+            <a href="index.html">
+                <span class="logo-badge-icon">🐱</span>
+                <span>ShopCloth</span>
+            </a>
+        </div>
+        <div class="header-right-group">
+            <nav class="navbar">
+                <!-- Nút Home icon -->
+                <a href="index.html" class="nav-home-btn" title="Trang chủ">
+                    <svg width="36" height="36" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                    </svg>
+                </a>
+            </nav>
+
+            <!-- Icon Giỏ Hàng có Badge số lượng -->
+            <a href="cart.html" class="nav-cart-btn active" title="Giỏ hàng của bạn">
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                </svg>
+                <span id="cartCountBadge" class="cart-badge">2</span>
+            </a>
+
+            <!-- Phần người dùng nằm bên trái nút 3 gạch -->
+            <div id="navUserSlot" style="display: inline-flex; align-items: center;">
+                <a href="account.html" class="nav-account-link" style="color: #cbd5e1; font-size: 14.5px; font-weight: 500; text-decoration: none; padding: 6px 12px;">Tài Khoản</a>
+            </div>
+
+            <!-- Góc nút 3 gạch (không nền) -->
+            <div class="menu-toggle-wrapper">
+                <button type="button" class="btn-hamburger" id="btnHamburgerMenu" title="Menu quản trị">
+                    ☰
+                </button>
+                <div class="hamburger-dropdown" id="hamburgerDropdown">
+                    <a href="admin/login.html">
+                        <span>🔐</span>
+                        <span>Đăng nhập quản trị</span>
+                    </a>
+                    <a href="account.html">
+                        <span>👤</span>
+                        <span>Tài khoản của tôi</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container" style="flex-direction: column;">
+        <div id="cartContentArea">
+            <div class="cart-layout">
+                <!-- Bảng danh sách sản phẩm trong giỏ -->
+                <div class="cart-box">
+                    <h2>Giỏ Hàng Của Bạn (2 món)</h2>
+                    <div style="overflow-x: auto;">
+                        <table class="cart-table">
+                            <thead>
+                                <tr>
+                                    <th>Sản phẩm</th>
+                                    <th>Đơn giá</th>
+                                    <th style="text-align:center;">Số lượng</th>
+                                    <th>Thành tiền</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="cart-item-info">
+                                            <img src="images/product-jacket-black.png" alt="Áo Khoác Da Lộn Nam Cao Cấp (Đen)" class="cart-item-img">
+                                            <div>
+                                                <div class="cart-item-title">Áo Khoác Da Lộn Nam Cao Cấp (Đen)</div>
+                                                <div class="cart-item-meta">Size: L • Màu Đen</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td style="color:#94a3b8;">1.299.000 đ</td>
+                                    <td style="text-align:center;">
+                                        <div class="qty-controller">
+                                            <button type="button" class="btn-qty">-</button>
+                                            <input type="text" class="qty-input" value="1" readonly>
+                                            <button type="button" class="btn-qty">+</button>
+                                        </div>
+                                    </td>
+                                    <td style="color:#38bdf8; font-weight:700;">1.299.000 đ</td>
+                                    <td style="text-align:right;">
+                                        <button type="button" class="btn-remove-item" title="Xóa món này">&times;</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="cart-item-info">
+                                            <img src="images/product-pant-jean.png" alt="Quần Jean Slimfit Co Giãn Nam" class="cart-item-img">
+                                            <div>
+                                                <div class="cart-item-title">Quần Jean Slimfit Co Giãn Nam</div>
+                                                <div class="cart-item-meta">Size: 32 • Màu Xanh Đậm</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td style="color:#94a3b8;">520.000 đ</td>
+                                    <td style="text-align:center;">
+                                        <div class="qty-controller">
+                                            <button type="button" class="btn-qty">-</button>
+                                            <input type="text" class="qty-input" value="1" readonly>
+                                            <button type="button" class="btn-qty">+</button>
+                                        </div>
+                                    </td>
+                                    <td style="color:#38bdf8; font-weight:700;">520.000 đ</td>
+                                    <td style="text-align:right;">
+                                        <button type="button" class="btn-remove-item" title="Xóa món này">&times;</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div style="margin-top:20px;">
+                        <a href="index.html" class="back-link">&larr; Tiếp tục chọn thêm sản phẩm</a>
+                    </div>
+                </div>
+
+                <!-- Khung Tóm tắt Đơn hàng -->
+                <div class="cart-box" style="height: fit-content;">
+                    <h2>Tóm Tắt Đơn Hàng</h2>
+                    <div class="summary-row">
+                        <span>Tạm tính tiền hàng:</span>
+                        <strong>1.819.000 đ</strong>
+                    </div>
+                    <div class="summary-row">
+                        <span>Phí vận chuyển:</span>
+                        <span style="color:#10b981; font-weight:600;">Miễn phí toàn quốc</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Mã giảm giá (Voucher):</span>
+                        <span style="color:#94a3b8;">Không áp dụng</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Tổng thanh toán:</span>
+                        <span>1.819.000 đ</span>
+                    </div>
+
+                    <a href="checkout.html" class="btn-primary" style="display:block; text-align:center; text-decoration:none; margin-top:20px; padding:13px; font-size:15px;">
+                        Tiến Hành Đặt Hàng &rarr;
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

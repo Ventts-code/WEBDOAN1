@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop Quần Áo - Lịch sử mua hàng</title>
+  <link rel="icon" type="image/png" href="images/logo-cat.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="main-header">
+    <div class="logo">
+      <a href="logged-index.html">
+        <span class="logo-badge-icon">🐱</span>
+        <span>ShopCloth</span>
+      </a>
+    </div>
+    <div class="header-right-group">
+      <nav class="navbar" style="display: flex; align-items: center; gap: 20px;">
+        <a href="logged-index.html">Trang Chủ</a>
+        <a href="cart.html">Giỏ Hàng</a>
+        <a href="account.html" class="nav-user-pill">
+          <span class="nav-user-avatar">N</span>
+          <span class="nav-user-name">Nguyễn Văn An</span>
+        </a>
+      </nav>
+      <!-- Góc nút 3 gạch (không nền) -->
+      <div class="menu-toggle-wrapper">
+        <button type="button" class="btn-hamburger" id="btnHamburgerMenu" title="Menu quản trị">
+          ☰
+        </button>
+        <div class="hamburger-dropdown" id="hamburgerDropdown">
+          <a href="admin/login.html">
+            <span>🔐</span>
+            <span>Đăng nhập quản trị</span>
+          </a>
+          <a href="account.html">
+            <span>👤</span>
+            <span>Tài khoản của tôi</span>
+          </a>
+          <a href="index.html">
+            <span>🚪</span>
+            <span>Đăng xuất</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="account-wrapper">
+    <div class="account-top-card">
+      <div class="user-profile-group">
+        <div class="avatar-circle">NV</div>
+        <div>
+          <div class="user-name">Nguyễn Văn An</div>
+          <div class="user-phone">📞 0901234567 • nguyenvanan@gmail.com</div>
+        </div>
+      </div>
+      <div style="display:flex; gap:20px;">
+        <div>
+          <div style="font-size:16px; font-weight:bold;">4 đơn hàng</div>
+          <div style="font-size:11px; color:#64748b;">Tổng số đơn đã mua</div>
+        </div>
+        <div>
+          <div style="font-size:16px; font-weight:bold;" class="price-text">6.157.000 đ</div>
+          <div style="font-size:11px; color:#64748b;">Tổng tiền chi tiêu</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="account-main-grid">
+      <aside class="account-sidebar-nav">
+        <a href="account.html" class="nav-item-btn">📊 Tổng quan</a>
+        <a href="history.html" class="nav-item-btn active">📦 Lịch sử mua hàng</a>
+        <a href="cart.html" class="nav-item-btn">🛒 Giỏ hàng</a>
+        <hr class="sidebar-divider">
+        <a href="index.html" class="nav-item-btn" style="color: #dc2626;">🚪 Đăng xuất</a>
+      </aside>
+
+      <main class="account-content-card">
+        <div class="card-heading"><span>Tất cả đơn hàng đã mua</span></div>
+        <div id="dynamicHistoryList">
+          <!-- Đơn hàng 1 -->
+          <div class="order-box-item">
+            <div class="order-box-head">
+              <span><strong>#ORD-9824</strong> • 18/11/2026</span>
+              <span class="badge-status status-orange">Đang giao</span>
+            </div>
+            <div class="order-box-body">
+              <div>
+                <strong>Áo Khoác Da Lộn Nam Cao Cấp (Đen) (x1) (+1 món khác)</strong>
+                <div style="font-size:12.5px; color:#94a3b8; margin-top:4px;">Người nhận: Nguyễn Văn An • 0901234567 • 123 Lê Lợi, Q.1, Hồ Chí Minh</div>
+              </div>
+            </div>
+            <div class="order-box-foot" style="display:flex; justify-content:space-between; align-items:center;">
+              <a href="order-detail.html" style="color:#38bdf8; font-size:13px; font-weight:600; text-decoration:none;">Xem chi tiết &rarr;</a>
+              <div>Tổng: <strong class="price-text">1.819.000 đ</strong></div>
+            </div>
+          </div>
+
+          <!-- Đơn hàng 2 -->
+          <div class="order-box-item">
+            <div class="order-box-head">
+              <span><strong>#ORD-9021</strong> • 15/10/2026</span>
+              <span class="badge-status status-orange">Chưa xác nhận</span>
+            </div>
+            <div class="order-box-body">
+              <div>
+                <strong>Áo Khoác Da Lộn Nam Cao Cấp (Đen) (x2) (+1 món khác)</strong>
+                <div style="font-size:12.5px; color:#94a3b8; margin-top:4px;">Người nhận: Nguyễn Văn An • 0901234567 • 123 Lê Lợi, Q.1, Hồ Chí Minh</div>
+              </div>
+            </div>
+            <div class="order-box-foot" style="display:flex; justify-content:space-between; align-items:center;">
+              <a href="order-detail.html" style="color:#38bdf8; font-size:13px; font-weight:600; text-decoration:none;">Xem chi tiết &rarr;</a>
+              <div>Tổng: <strong class="price-text">3.118.000 đ</strong></div>
+            </div>
+          </div>
+
+          <!-- Đơn hàng 3 -->
+          <div class="order-box-item">
+            <div class="order-box-head">
+              <span><strong>#ORD-9027</strong> • 10/10/2026</span>
+              <span class="badge-status status-green">Đã giao</span>
+            </div>
+            <div class="order-box-body">
+              <div>
+                <strong>Áo Khoác Bomber Da Bò Màu Nâu (x1)</strong>
+                <div style="font-size:12.5px; color:#94a3b8; margin-top:4px;">Người nhận: Nguyễn Văn An • 0901234567 • 123 Lê Lợi, Q.1, Hồ Chí Minh</div>
+              </div>
+            </div>
+            <div class="order-box-foot" style="display:flex; justify-content:space-between; align-items:center;">
+              <a href="order-detail.html" style="color:#38bdf8; font-size:13px; font-weight:600; text-decoration:none;">Xem chi tiết &rarr;</a>
+              <div>Tổng: <strong class="price-text">350.000 đ</strong></div>
+            </div>
+          </div>
+
+          <!-- Đơn hàng 4 -->
+          <div class="order-box-item">
+            <div class="order-box-head">
+              <span><strong>#ORD-9030</strong> • 16/10/2026</span>
+              <span class="badge-status status-orange">Chưa xác nhận</span>
+            </div>
+            <div class="order-box-body">
+              <div>
+                <strong>Áo Khoác Bomber Da Bò Màu Nâu (x1) (+1 món khác)</strong>
+                <div style="font-size:12.5px; color:#94a3b8; margin-top:4px;">Người nhận: Nguyễn Văn An • 0901234567 • 123 Lê Lợi, Q.1, Hồ Chí Minh</div>
+              </div>
+            </div>
+            <div class="order-box-foot" style="display:flex; justify-content:space-between; align-items:center;">
+              <a href="order-detail.html" style="color:#38bdf8; font-size:13px; font-weight:600; text-decoration:none;">Xem chi tiết &rarr;</a>
+              <div>Tổng: <strong class="price-text">870.000 đ</strong></div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+</body>
+</html>

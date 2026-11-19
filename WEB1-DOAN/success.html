@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop Quần Áo - Đặt hàng thành công</title>
+  <link rel="icon" type="image/png" href="images/logo-cat.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="main-header">
+    <div class="logo">
+      <a href="logged-index.html">
+        <span class="logo-badge-icon">🐱</span>
+        <span>ShopCloth</span>
+      </a>
+    </div>
+    <div class="header-right-group">
+      <nav class="navbar" style="display: flex; align-items: center; gap: 20px;">
+        <a href="logged-index.html">Trang Chủ</a>
+        <a href="cart.html">Giỏ Hàng</a>
+        <a href="account.html" class="nav-user-pill">
+          <span class="nav-user-avatar">N</span>
+          <span class="nav-user-name">Nguyễn Văn An</span>
+        </a>
+      </nav>
+      <!-- Góc nút 3 gạch (không nền) -->
+      <div class="menu-toggle-wrapper">
+        <button type="button" class="btn-hamburger" id="btnHamburgerMenu" title="Menu quản trị">
+          ☰
+        </button>
+        <div class="hamburger-dropdown" id="hamburgerDropdown">
+          <a href="admin/login.html">
+            <span>🔐</span>
+            <span>Đăng nhập quản trị</span>
+          </a>
+          <a href="account.html">
+            <span>👤</span>
+            <span>Tài khoản của tôi</span>
+          </a>
+          <a href="history.html">
+            <span>📦</span>
+            <span>Lịch sử mua hàng</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="success-page-wrapper">
+    <div class="success-card-box">
+      <div class="success-icon-circle">✓</div>
+      <h2 style="font-size: 20px; font-weight: bold; color: #0f172a; margin-bottom: 6px;">Đặt hàng thành công!</h2>
+      <p style="font-size: 13.5px; color: #64748b; margin-bottom: 16px;">Mã đơn hàng: <strong style="color:#0284c7;">#ORD-9824</strong></p>
+      
+      <div class="success-details-box" style="text-align: left; line-height: 1.8;">
+        <p><strong>Người nhận:</strong> Nguyễn Văn An</p>
+        <p><strong>Số điện thoại:</strong> 0901234567</p>
+        <p><strong>Địa chỉ giao:</strong> 123 Lê Lợi, Phường Bến Nghé, Quận 1, Hồ Chí Minh</p>
+        <p><strong>Hình thức thanh toán:</strong> Thanh toán khi nhận hàng (COD)</p>
+        <p><strong>Tổng tiền thanh toán:</strong> <span class="price-text" style="color: #0284c7; font-weight: bold; font-size: 16px;">1.819.000 đ</span></p>
+      </div>
+
+      <div style="display: flex; gap: 12px; justify-content: center; flex-direction: column; margin-top: 20px;">
+        <a href="order-detail.html" class="btn-primary-custom" style="text-align:center; text-decoration:none; display:block;">Xem chi tiết đơn hàng</a>
+        <a href="history.html" class="btn-secondary-custom" style="text-align:center; text-decoration:none; display:block;">Xem lịch sử mua hàng</a>
+        <a href="logged-index.html" style="color: #64748b; font-size: 13.5px; text-decoration: none; text-align: center; margin-top: 6px;">&larr; Quay về trang chủ mua sắm</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
